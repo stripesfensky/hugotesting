@@ -7,17 +7,26 @@
     {{- $text := .Get "text" -}}
 
     {{- if or $url $text -}}
-      {{- $pageCiteCount := .Page.Store.Get "pageCiteCount" | default 0 -}}
-      {{- $pageCiteSlice := .Page.Store.Get "pageCiteSlice" | default slice -}}
+      {{- $pageCitationCount := 0 -}}
+      {{- with .Page.Store.Get "pageCitationCount" -}}
+        {{- $pageCitationCount = . -}}
+      {{- end -}}
 
-      {{- $pageCiteChildren := .Page.Store.Get "pageCiteChildren" | default dict -}}
+      {{- $globalCitationCount := 0 -}}
+      {{- with .Site.Store.Get "globalCitationCount" -}}
+        {{- $globalCitationCount = . -}}
+      {{- end -}}
 
-      {{- $globalCiteCount := .Site.Store.Get "globalCiteCount" | default 0 -}}
-      {{- $globalCiteSlice := .Page.Store.Get "globalCiteSlice" | default slice -}}
+      {{- $pageCitations := slice -}}
+      {{- with .Page.Store.Get "pageCitations" -}}
+        {{- $pageCiteSlice = . -}}
+      {{- end -}}
 
-      {{- .Page.Store.Add "pageCiteCount" 1 -}}
-      {{- .Page.Store.Add "pageCiteChildren" ((string $pageCiteCount)) -}}
-      {{- .Site.Store.Add "gloalCiteCount" 1 -}}
+      {{- $globalCitations := slice -}}
+      {{- with .Page.Store.Get "globalCitations" -}}
+        {{- $globalCitations = . -}}
+      {{- end -}}
+
 
     {{- else -}}
       {{- errorf "Citation needs url or text attribute" -}}

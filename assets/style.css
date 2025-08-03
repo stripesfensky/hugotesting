@@ -1,7 +1,12 @@
 a {
-  color: blue;
+  color: #2288FF;
 }
 
 .linkerror {
-  color: red;
+  color: #FF2288;
+}
+
+html {
+  background-color: #222222;
+  color: #DFDFDF;
 }
