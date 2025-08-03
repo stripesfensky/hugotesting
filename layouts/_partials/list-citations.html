@@ -1,0 +1,3 @@
+{{- range .Site.RegularPages -}}
+  <li><a href="{{ .Permalink }}">{{- .Title -}}{{- with .Page.Store.Get "citationCount" -}}&nbsp;[{{- . -}}&nbsp;citations]{{- end -}}</a></li>
+{{- end -}}
