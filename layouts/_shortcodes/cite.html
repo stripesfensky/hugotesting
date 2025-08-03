@@ -1,3 +1,33 @@
+{{- /* Intialize page citations count: 2 */ -}}
+{{- $pageCitationCount := 0 -}}
+{{- with .Page.Store.Get "pageCitationCount" -}}
+  {{- $pageCitationCount = . -}}
+{{- end -}}
+
+{{- /* Intialize page citations slice: ["ref1", "ref2", ...] */ -}}
+{{- $pageCitations := slice -}}
+{{- with .Page.Store.Get "pageCitations" -}}
+  {{- $pageCitations = . -}}
+{{- end -}}
+
+{{- /* Intialize page citation child dict: [{"ref1", 1}, {"ref1", 2}, {"ref2", 1} ...] */ -}}
+{{- $pageCitationChildren := dict -}}
+{{- with .Page.Store.Get "pageCitationChildren" -}}
+  {{- $pageCitationChildren = . -}}
+{{- end -}}
+
+{{- /* Intialize page citation content dict: [{"ref1", "abc"}, {"ref2", "def"} ...] */ -}}
+{{- $pageCitationContent := dict -}}
+{{- with .Page.Store.Get "pageCitationContent" -}}
+  {{- $pageCitationContent = . -}}
+{{- end -}}
+
+{{- /* Intialize global page citation content dict: [{"Test", "abc"}, {"Test", "def"} ...] */ -}}
+{{- $globalCitationContent := dict -}}
+{{- with .Site.Store.Get "globalCitationContent" -}}
+  {{- $globalCitationContent = . -}}
+{{- end -}}
+
 {{- $type := .Get "type" -}}
 {{- $ref := .Get "ref" -}}
 
@@ -7,35 +37,56 @@
     {{- $text := .Get "text" -}}
 
     {{- if or $url $text -}}
-      {{- $pageCitationCount := 0 -}}
-      {{- with .Page.Store.Get "pageCitationCount" -}}
-        {{- $pageCitationCount = . -}}
-      {{- end -}}
+      {{- if not (in $pageCitations $ref) -}}
+        {{- /* Update page citations count, add 1 */ -}}
+        {{- $pageCitationCount = add $pageCitationCount 1 -}}
 
-      {{- $globalCitationCount := 0 -}}
-      {{- with .Site.Store.Get "globalCitationCount" -}}
-        {{- $globalCitationCount = . -}}
-      {{- end -}}
+        {{- /* Update page citations slice, append "ref1" */ -}}
+        {{- $pageCitations = $pageCitations | append $ref -}}
 
-      {{- $pageCitations := slice -}}
-      {{- with .Page.Store.Get "pageCitations" -}}
-        {{- $pageCiteSlice = . -}}
-      {{- end -}}
+        {{- /* Update page citation child dict, merge with new dict {"ref1", 1} */ -}}    
+        {{- $pageCitationChildren = merge $pageCitationChildren (dict $ref (string $pageCitationCount)) -}}
+        
+        {{- /* Determine what the content will be: "abc" */ -}}
+        {{- $citationContent := "" -}}
+        {{- if and $url $text -}}
+          {{- $citationContent = printf "<a href='%s'>%s</a>; %s" $url $url $text -}}
+        {{- else if $url -}}
+          {{- $citationContent = printf "<a href='%s'>%s</a>" $url $url -}}
+        {{- else if $text -}}
+          {{- $citationContent = printf "%s" $text -}}
+        {{- else -}}
+          {{- $citationContent = $citationContent -}}
+        {{- end -}}
 
-      {{- $globalCitations := slice -}}
-      {{- with .Page.Store.Get "globalCitations" -}}
-        {{- $globalCitations = . -}}
-      {{- end -}}
+        {{- /* Update page citation content dict, merge with new dict {"ref1", "abc"} */ -}}    
+        {{- $pageCitationContent = merge $pageCitationContent (dict $ref $citationContent) -}}
 
+        {{- /* Update global page citation content dict, merge with new dict {"Test", "abc"} */ -}}            
+        {{- $globalCitationContent = merge $globalCitationContent (dict .Page.Title $citationContent) -}}
+
+        {{- .Page.Store.Set "pageCitationCount" $pageCitationCount -}}
+        {{- .Page.Store.Set "pageCitations" $pageCitations -}}
+        {{- .Page.Store.Set "pageCitationChildren" $pageCitationChildren -}}
+        {{- .Page.Store.Set "pageCitationContent" $pageCitationContent -}}
+        {{- .Site.Store.Set "globalCitationContent" $globalCitationContent -}} 
+
+      {{- else -}}
+        {{- /* errorf "Reference code already used in %s: %s" .Page.Title $ref */ -}}
+        {{- printf "[Reference code already used in %s: %s]" .Page.Title $ref -}}
+      {{- end -}}
 
     {{- else -}}
-      {{- errorf "Citation needs url or text attribute" -}}
+      {{-  errorf "Citation needs url or text attribute %s (%s)" .Page.Title $ref -}}
     {{- end -}}
+
   {{- else if eq $type "existing" -}}
 
+
   {{- else -}}
-    {{- errorf "Invalid citation type attribute '%s'" $type -}}
+    {{- errorf "Invalid citation type attribute '%s' (%s)" $type $ref -}}
   {{- end -}}
+
 {{- else -}}
-  {{- errorf "Citation needs type and ref attribute" -}}
+  {{- errorf "Citation needs type and ref attribute (%s)" .Page.Title -}}
 {{- end -}}

@@ -16,9 +16,9 @@ Lorem ipsum dolor sit amet. {{< cite type="new" url="https://www.example.com" te
 ## Heading 2
 Referring to an existing citation. {{< cite type="existing" ref="abc" >}}
 
+| AAAA | BBBB | CCCC | DDDD |
+| :---: | :---: | :---: | :---: |
 | A | B | C | D |
-| --- | --- | --- | --- |
-| A | A | A | A |
-| B | B | B | B |
-| C | C | C | C |
-| D | D | D | D |
+| A | B | C | D |
+| A | B | C | D |
+| A | B | C | D |
