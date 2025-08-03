@@ -4,36 +4,19 @@
   {{- $url := .Get "url" -}}
   {{- $text := .Get "text" -}}
 
-  {{- $currentCitationCount := .Page.Store.Get "citationCount" -}}
-  {{- $updatedCitationCount := add $currentCitationCount 1 -}}
-  {{- .Page.Store.Set "citationCount" $updatedCitationCount -}}
+  {{- if or $url $text -}}
+    {{- $pageCiteCount := .Page.Store.Get "pageCiteCount" | default 0 -}}
+    {{- $pageCiteSlice := .Page.Store.Get "pageCiteSlice" | default slice -}}
 
-  {{- $citations := .Page.Store.Get "citations" -}}
-  {{- .Page.Store.Set "citations" $citations -}}
+    {{- $siteCiteCount := .Site.Store.Get "siteCiteCount" | default 0 -}}
+    {{- $siteCiteSlice := .Page.Store.Get "siteCiteSlice" | default slice -}}
 
-  {{- $citationContent := "" -}}
-  {{- if and $url $text -}}
-    {{- $citationContent = printf "<a id='citation-%s' href='%s'>%s</a>; %s" $updatedCitationCount $url $url $text -}}
-  {{- else if $url -}}
-    {{- $citationContent = printf "<a id='citation-%s' href='%s'>%s</a>" $updatedCitationCount $url $url -}}
-  {{- else if $text -}}
-    {{- $citationContent = $text -}}
+    
   {{- else -}}
-    {{- errorf "Citation needs either url or text attribute" -}}
+    {{- errorf "Citation needs url or text attribute" -}}
   {{- end -}}
+{{- else if eq $type "existing" -}}
 
-  {{- $citations = $citations | append $citationContent -}}
-  {{- .Page.Store.Set "citations" $citations -}}
-  <sup><a id='citation-ref-{{- $updatedCitationCount -}}' href="#citation-{{- $updatedCitationCount -}}">[{{- $updatedCitationCount -}}]</a></sup>
-  
-{{- else if eq $type "existing" }}
-  {{- $num:= .Get "num" -}}
-  {{- $citations := .Page.Store.Get "citations" -}}
-  {{- if and (gt $num 0) (le $num (len $citations)) -}}
-    <sup><a href='#citation-{{- $num -}}'>[{{- $num -}}]</a></sup>
-  {{- else -}}
-    {{- errorf "Existing citation with number '%s' not found." $num -}}
-  {{- end -}}
 {{- else -}}
-  {{- errorf "Invalid citation type attribute specified. Must be 'new' or 'existing' type." -}}
+  {{- errorf "Invalid citation type attribute '%s'" $type -}}
 {{- end -}}

@@ -1,7 +1,7 @@
 ---
 title: Content Test 1
 ---
-***{{< wiki-link "Content Test 1" >}}*** is the  name of this page...
+***{{< wiki-link "Content Test 1" >}}*** is the  name of this page.
 
 ## Heading 1
 ### Subheading 1.1

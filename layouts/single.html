@@ -1,10 +1,9 @@
 {{- define "main" -}}
-  {{- .Page.Store.Set "citations" slice -}}
-  {{- .Page.Store.Set "citationCount" 0 -}}
   {{- .Content -}}
   {{- with .Page.Store.Get "citations" -}}
     {{- $citations := . -}}
-    {{- if gt (len $citations) 0 -}}
+    <p>Length of "citations" slice: </p> {{- len $citations -}}
+    <!-- {{- if gt (len $citations) 0 -}}
       <br /><hr /><h2>References</h2>
       <ol>
       {{- range $i, $citation := $citations -}}
@@ -14,6 +13,6 @@
         </li>
       {{- end -}}
       </ol>
-    {{- end -}}
+    {{- end -}} -->
   {{- end -}}
 {{- end -}}

@@ -1,15 +1,9 @@
 {{- $lookup := index .Params 0 -}}
-{{- $secondary := index .Params 1 -}}
-{{- $title := $lookup }}
+{{- $articles := where .Site.RegularPages "Title" $lookup -}}
+{{- $title := or (index .Params 1) $lookup -}}
 
-{{- if $secondary -}}
-  {{- $title = $secondary -}}
-{{- end -}}
-
-{{- $articles := where .Site.RegularPages "Title" $lookup }}
-
-{{- if gt (len $articles) 0 -}} 
-  <a href="{{- (index $articles 0).RelPermalink -}}">{{- $title -}}</a>
-  {{- else -}} 
-  <a href="#" class="linkerror">{{- $lookup -}}</a>
+{{- with index $articles 0 -}}
+  <a href="{{ .RelPermalink }}">{{ $title }}</a>
+{{- else -}}
+  <a href="#" class="linkerror">{{ $lookup }}</a>
 {{- end -}}
