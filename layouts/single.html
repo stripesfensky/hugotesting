@@ -1,3 +1,17 @@
-{{ define "main" }}
- {{ .Content }}
-{{ end }}
+{{- define "main" -}}
+  {{- .Content -}}
+  {{- with .Page.Store.Get "citations" -}}
+    {{- $citations := . -}}
+    {{- if gt (len $citations) 0 -}}
+      <br /><hr /><h2>References</h2>
+      <ol>
+      {{- range $i, $citation := $citations -}}
+        <li id="citation-{{- add $i 1 -}}">
+          <a href="#citation-ref-{{- add $i 1 -}}">[^]</a>&nbsp;
+          {{- $citation | safeHTML -}}
+        </li>
+      {{- end -}}
+      </ol>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

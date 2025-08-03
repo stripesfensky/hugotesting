@@ -1,2 +1,4 @@
 # hugotesting
-Test Hugo site to try different headless CMS implementations
+
+Test Hugo site for Cheese-E-Pedia
+

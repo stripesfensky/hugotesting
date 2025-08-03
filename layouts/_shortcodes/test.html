@@ -1,0 +1,25 @@
+{{- $type := .Get "type" -}}
+{{- $url := .Get "url" -}}
+{{- $text := .Get "text" -}}
+{{- $num := .Get "num" -}}
+
+{{- if eq (.Get "type") "new" -}}
+  {{- $count := .Page.Store.Get "citationcount" | default 0 -}}
+  {{- .Page.Store.Set "citationcount" (add $count 1) -}}
+
+  {{- if and $url $text -}}
+  {{- .Page.Store.SetInMap "citations" $num ("<a href='$url'>{{- $url - }}</a> {{- $text -}}") -}}
+  {{- end -}}
+
+  {{- if $url -}}
+  {{- .Page.Store.SetInMap "citations" $num ("<a href='$url'>{{- $url - }}</a>") -}}
+  {{- end -}}
+
+  {{- if $text -}}
+  {{- .Page.Store.SetInMap "citations" $num ("{{- $text -}}") -}}
+  {{- end -}}
+
+{{- end -}}
+
+{{- .Store.Set "num" (.Page.Store.Get "citationcount") -}}
+<sup><a href="#citation-{{- .Store.Get "num" -}}">[{{- .Store.Get "num" -}}]</a></sup>
