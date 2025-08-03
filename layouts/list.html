@@ -1,7 +1,7 @@
 {{- define "main" -}}
   <ul>
   {{- range .Pages -}}
-    <li><a href="{{ .Permalink }}">{{- .Title -}}{{- with .Store.Get "citationCount" -}}&nbsp;[{{- . -}}&nbsp;citations]{{- end -}}</a></li>
+    <li><a href="{{ .Permalink }}">{{- .Title -}}</a></li>
   {{- end -}}
   </ul>
 {{- end -}}

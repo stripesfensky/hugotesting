@@ -1,4 +1,6 @@
 {{- define "main" -}}
+  {{- .Page.Store.Set "citations" slice -}}
+  {{- .Page.Store.Set "citationCount" 0 -}}
   {{- .Content -}}
   {{- with .Page.Store.Get "citations" -}}
     {{- $citations := . -}}

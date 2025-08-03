@@ -1,8 +1,6 @@
 ---
 title: Patchogue, NY (121 Sunrise Hwy)
 ---
-{{< reset-citations >}}
-
 ***{{< wiki-link "Patchogue, NY (121 Sunrise Hwy)" >}}, Store #496,*** is a *Chuck E. Cheese* that opened on March 29, 1993.
 
 ## History
