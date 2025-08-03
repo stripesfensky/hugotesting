@@ -5,16 +5,16 @@ title: Content Test 1
 
 ## Heading 1
 ### Subheading 1.1
-{{< wiki-link "Content Test 2" >}} {{< cite type="new" url="https://www.example.com" >}}
+{{< wiki-link "Content Test 2" >}} {{< cite type="new" url="https://www.example.com" ref="abc" >}}
 
 ### Subheading 1.2
-Lorem ipsum dolor sit amet. {{< cite type="new" url="https://www.example.com" text="test citation." >}}
+Lorem ipsum dolor sit amet. {{< cite type="new" url="https://www.example.com" text="test citation." ref="def" >}}
 
 ### Subheading 1.3
-{{< wiki-link "Content Test 3" >}} {{< cite type="new" text="Another test citation." >}}
+{{< wiki-link "Content Test 3" >}} {{< cite type="new" text="Another test citation." ref="ghi" >}}
 
 ## Heading 2
-Referring to an existing citation. {{< cite type="existing" num="2" >}}
+Referring to an existing citation. {{< cite type="existing" ref="abc" >}}
 
 | A | B | C | D |
 | --- | --- | --- | --- |

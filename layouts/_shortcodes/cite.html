@@ -1,22 +1,32 @@
 {{- $type := .Get "type" -}}
+{{- $ref := .Get "ref" -}}
 
-{{- if eq $type "new" -}}
-  {{- $url := .Get "url" -}}
-  {{- $text := .Get "text" -}}
+{{- if and $type $ref -}}
+  {{- if eq $type "new" -}}
+    {{- $url := .Get "url" -}}
+    {{- $text := .Get "text" -}}
 
-  {{- if or $url $text -}}
-    {{- $pageCiteCount := .Page.Store.Get "pageCiteCount" | default 0 -}}
-    {{- $pageCiteSlice := .Page.Store.Get "pageCiteSlice" | default slice -}}
+    {{- if or $url $text -}}
+      {{- $pageCiteCount := .Page.Store.Get "pageCiteCount" | default 0 -}}
+      {{- $pageCiteSlice := .Page.Store.Get "pageCiteSlice" | default slice -}}
 
-    {{- $siteCiteCount := .Site.Store.Get "siteCiteCount" | default 0 -}}
-    {{- $siteCiteSlice := .Page.Store.Get "siteCiteSlice" | default slice -}}
+      {{- $pageCiteChildren := .Page.Store.Get "pageCiteChildren" | default dict -}}
 
-    
+      {{- $globalCiteCount := .Site.Store.Get "globalCiteCount" | default 0 -}}
+      {{- $globalCiteSlice := .Page.Store.Get "globalCiteSlice" | default slice -}}
+
+      {{- .Page.Store.Add "pageCiteCount" 1 -}}
+      {{- .Page.Store.Add "pageCiteChildren" ((string $pageCiteCount)) -}}
+      {{- .Site.Store.Add "gloalCiteCount" 1 -}}
+
+    {{- else -}}
+      {{- errorf "Citation needs url or text attribute" -}}
+    {{- end -}}
+  {{- else if eq $type "existing" -}}
+
   {{- else -}}
-    {{- errorf "Citation needs url or text attribute" -}}
+    {{- errorf "Invalid citation type attribute '%s'" $type -}}
   {{- end -}}
-{{- else if eq $type "existing" -}}
-
 {{- else -}}
-  {{- errorf "Invalid citation type attribute '%s'" $type -}}
+  {{- errorf "Citation needs type and ref attribute" -}}
 {{- end -}}
