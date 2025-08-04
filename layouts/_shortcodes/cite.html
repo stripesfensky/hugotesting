@@ -70,12 +70,12 @@
         {{- .Page.Store.Set "pageCitationChildren" $pageCitationChildren -}}
         {{- .Page.Store.Set "pageCitationContent" $pageCitationContent -}}
         {{- .Site.Store.Set "globalCitationContent" $globalCitationContent -}} 
-
-      {{- else -}}
+        
+      {{- /* else */ -}}
         {{- /* errorf "Reference code already used in %s: %s" .Page.Title $ref */ -}}
-        {{- printf "[Reference code already used in %s: %s]" .Page.Title $ref -}}
+        {{- /* printf "[Reference code already used in %s: %s]" .Page.Title $ref */ -}}
       {{- end -}}
-
+      <sup>*</sup>
     {{- else -}}
       {{-  errorf "Citation needs url or text attribute %s (%s)" .Page.Title $ref -}}
     {{- end -}}
