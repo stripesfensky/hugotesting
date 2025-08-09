@@ -1,0 +1,13 @@
+{{- $citations := .Page.Params.citations -}}
+{{- if $citations -}}
+  {{- $citationsMaxIndex := sub (len $citations) 1 -}}
+  {{- $userIndex := .Get 0 -}}
+  {{- $citationIndex := sub $userIndex 1 -}}
+  {{- if or (lt $citationIndex 0) (gt $citationIndex $citationsMaxIndex) -}}
+    {{- errorf "Invalid citation index used (%s, %d)" .Page.RelPermalink $userIndex -}}
+  {{- else -}}
+  <sup>[{{- $userIndex -}}]</sup>
+  {{- end -}}
+{{- else -}}
+  {{- errorf "Page has no citations but citation shortcode was called (%s)" .Page.RelPermalink -}}
+{{- end -}}

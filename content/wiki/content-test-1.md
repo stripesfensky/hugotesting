@@ -11,7 +11,7 @@ citations = [
 
 ## Heading 1
 ### Subheading 1.1
-{{< wiki-link "Content Test 2" >}} {{< cite 1 >}}
+{{< wiki-link "Content Test 2" >}} {{< cite 1 >}}{{< cite 2 >}}
 
 ### Subheading 1.2
 Lorem ipsum dolor sit amet. {{< cite 2 >}}
