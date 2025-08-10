@@ -1,4 +1,5 @@
 {{- define "main" -}}
+{{- .Page.Store.Set "citationsCount" dict -}}
   <h1>{{- .Title -}}</h1>
   {{- .Content -}}
   {{- partial "display-citations.html" . -}}
