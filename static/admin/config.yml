@@ -9,7 +9,7 @@ media_folder: "static/photos"
 public_folder: "/photos"
 
 site_url: https://hugotesting.plushypuppy.club/
-logo_url: https://upload.wikimedia.org/wikipedia/commons/b/b7/Microsoft_Windows_98_logo_with_wordmark.svg
+# logo_url: <logo URL for login page>
 
 show_preview_links: false
 search: false
