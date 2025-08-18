@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: stripesfensky/hugotesting
+  open_authoring: true
+
+media_folder: "static/photos"
+public_folder: "/photos"
+
+site_url: https://hugotesting.plushypuppy.club/
+
+show_preview_links: false
+search: false
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+editor:
+  preview: false
+
+collections:
+  - name: "wiki"
+    label: "Articles"
+    label_singular: "Article"
+    create: true
+    extension: md
+    format: toml-frontmatter
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
+      - {label: "Citations", name: "citations", widget: "list", required: true}
