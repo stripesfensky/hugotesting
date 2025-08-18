@@ -22,6 +22,7 @@ collections:
   - name: "wiki"
     label: "Articles"
     label_singular: "Article"
+    folder: "content/wiki"
     create: true
     extension: md
     format: toml-frontmatter
