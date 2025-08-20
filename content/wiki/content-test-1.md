@@ -1,6 +1,6 @@
 +++
 title = "Content Test 1"
-citations = ["https://example.com", "test", "https://example.com"]
+citations = ["https://example.com", "Testing citation #1", "https://example.com", "Testing citation #2"]
 +++
 ***{{< wiki-link "Content Test 1" >}}*** is the  name of this page.
 
