@@ -33,4 +33,4 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Body", name: "body", widget: "markdown", required: true}
-      - {label: "Citations", name: "citations", widget: "list", required: true}
+      - {label: "Citations", name: "citations", widget: "list", field: {label: "Citation", name: "citation"}, required: true}
