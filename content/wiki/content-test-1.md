@@ -1,6 +1,6 @@
 +++
 title = "Content Test 1"
-citations = ["https://example.com", "test", "https://example.com", "test2", "test3", "https://hugo.plushypuppy.club"]
+citations = ["https://example.com", "test", "https://example.com"]
 +++
 ***{{< wiki-link "Content Test 1" >}}*** is the  name of this page.
 
@@ -22,9 +22,9 @@ Lorem ipsum dolor sit amet. {{< cite 2 >}}
 
 Referring to an existing citation. {{< cite 1 >}}{{< cite 2 >}}
 
-| AAAA | BBBB | CCCC | DDDD            |
-| ---- | ---- | ---- | --------------- |
-| A    | B    | C    | D{{< cite 4 >}} |
-| A    | B    | C    | D{{< cite 5 >}} |
-| A    | B    | C    | D{{< cite 6 >}} |
-| A    | B    | C    | D               |
+| AAAA | BBBB | CCCC | DDDD |
+| ---- | ---- | ---- | ---- |
+| A    | B    | C    | D    |
+| A    | B    | C    | D    |
+| A    | B    | C    | D    |
+| A    | B    | C    | D    |
