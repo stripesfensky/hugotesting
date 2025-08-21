@@ -17,19 +17,18 @@ Lorem ipsum dolor sit amet. {{< cite 2 >}}
 Here is a list
 
 1. Item 1
-   1. Sub-item 1.1
-   2. Sub-item 1.2
-   3. Sub-item 1.3
+    1. Sub-item 1.1
+        1. Sub-item 1.1.1
+    2. Sub-item 1.2
+    3. Sub-item 1.3
 2. Item 2
-   1. Sub-item 2.1
-   2. Sub-item 2.2
-   3. Sub-item 2.3
-
+    1. Sub-item 2.1
+    2. Sub-item 2.2
+    3. Sub-item 2.3
 3. Item 3
-   1. Sub-item 3.1
-   2. Sub-item 3.2
-    
-   3. Sub-item 3.3
+    1. Sub-item 3.1
+    2. Sub-item 3.2
+    3. Sub-item 3.3
 
 ### Subheading 1.3
 
