@@ -1,0 +1,28 @@
+media:
+  input: static/photos
+  output: photos
+  
+content:
+  - name: wiki
+    label: Articles
+    type: collection
+    path: content/wiki
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true 
+      - name: citations
+        label: Citations
+        type: object
+        fields:
+          - name: citation
+            label: Reference
+            type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+settings:
+  hide: true
+        
