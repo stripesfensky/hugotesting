@@ -1,7 +1,6 @@
 media:
   input: static/photos
-  output: photos
-  
+  output: photos 
 content:
   - name: wiki
     label: Articles
