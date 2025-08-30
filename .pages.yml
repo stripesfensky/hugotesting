@@ -24,3 +24,4 @@ content:
         label: Body
         type: rich-text
         required: true
+    format: toml-frontmatter
