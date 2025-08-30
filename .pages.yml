@@ -6,7 +6,7 @@ content:
   - name: wiki
     label: Articles
     type: collection
-    path: content/wiki
+    path: wiki
     fields:
       - name: title
         label: Title
