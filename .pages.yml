@@ -3,10 +3,10 @@ media:
   output: photos
   
 content:
-  - name: wiki
+  - name: wiki 
     label: Articles
     type: collection
-    path: wiki
+    path: content/wiki
     fields:
       - name: title
         label: Title
