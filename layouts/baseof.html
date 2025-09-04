@@ -11,3 +11,7 @@
 {{- end -}}
 </body>
 </html>
+{{- if .IsHome -}}
+  {{- $j := jsonify (dict "last-build" (now.Format "20060102T150405Z")) -}}
+  {{- $noop := (resources.FromString "/site.json" $j).Permalink -}}
+{{- end -}}
