@@ -65,6 +65,9 @@ collections:
         name: "repeatables"
         widget: "list"
         field:
+          - label: Name
+            name: repeatables_name
+            widget: string
           - label: Author
             name: author
             widget: object
