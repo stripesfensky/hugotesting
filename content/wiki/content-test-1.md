@@ -2,6 +2,13 @@
 title = "Content Test 1"
 citations = ["https://example.com", "Testing citation #1", "https://example.com", "Testing citation #2"]
 latitudeLongitude = ["40.7128", "74.0060"]
+
+[[repeatables]]
+quote = "Test quote"
+
+[repeatables.author]
+name = "Test author name"
+nickname = "Test nickname"
 +++
 
 ***{{< wiki-link "Content Test 1" >}}*** is the name of this page.
