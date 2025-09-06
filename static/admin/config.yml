@@ -70,23 +70,22 @@ collections:
     
       - label: "Start Date"
         name: "startDate"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
+        widget: "string"
 
       - label: "End Date"
         name: "endDate"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
+        widget: "string"
 
       - label: "Concept Unification Date"
         name: "cuDate"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
+        widget: "string"
 
       - label: "Map Coordinates"
         name: "latitudeLongitude"
-        widget: "list"
-        field: { label: "Coordinate", name: "coordinate", widget: "string" }
+        widget: "object"
+        fields: 
+          - { label: "Latitude", name: "latitude", widget: "string" }
+          - { label: "Longitude", name: "longitude", widget: "string" }
 
       - label: "Store Number"
         name: "storeNumber"
