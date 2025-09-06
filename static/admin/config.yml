@@ -64,11 +64,10 @@ collections:
       - label: "Repeatables"
         name: "repeatables"
         widget: "list"
-        fields:
-          - {label: Quote, name: quote, widget: string}
+        field:
           - label: Author
             name: author
             widget: object
             fields:
               - {label: Name, name: name, widget: string}
-              - {label: Nickname, name: nickname, widget: string}
+              - {label: Birthday, name: birthday, widget: datetime, date_fornat: "YYYY-MM-DD"}
