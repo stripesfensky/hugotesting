@@ -40,8 +40,7 @@ collections:
         name: "citations"
         widget: "list"
         field: 
-          - label: "Citation"
-            name: "citation"
+          - {label: "Citation", name: "citation"}
         required: true
 
       - label: "Repeatables"
@@ -55,12 +54,8 @@ collections:
             name: "rpvalue"
             widget: "object"
             fields:
-              - label: "Name"
-                name: "rpvalue-name"
-                widget: "string"
-              - label: "Value"
-                name: "rpvalue-value"
-                widget: "string"
+              - {label: "Name", name: "rpvalue-name", widget: "string"}
+              - {label: "Value", name: "rpvalue-value", widget: "string"}
         required: true
 
       - label: "Body"
