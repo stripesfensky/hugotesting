@@ -9,6 +9,13 @@ quote = "Test quote"
 [repeatables.author]
 name = "Test author name"
 nickname = "Test nickname"
+
+[[repeatables]]
+quote = "Test quote 2"
+
+[repeatables.author]
+name = "Test author 2"
+nickname = "Test nickname 2"
 +++
 
 ***{{< wiki-link "Content Test 1" >}}*** is the name of this page.
