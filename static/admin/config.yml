@@ -10,7 +10,6 @@ media_folder: "static/photos"
 public_folder: "/photos"
 
 site_url: https://hugo.plushypuppy.club/
-# logo_url: <logo URL for login page>
 
 show_preview_links: false
 search: false
@@ -24,9 +23,10 @@ editor:
 
 collections:
   - name: "wiki"
-    label: "Articles"
-    label_singular: "Article"
+    label: "Locations"
+    label_singular: "Location"
     folder: "content/wiki"
+    filter: { field: "tags", value: ["Locations"] }
     create: true
     extension: md
     format: toml-frontmatter
@@ -35,11 +35,21 @@ collections:
         name: "title"
         widget: "string"
         required: true
+
+      - label: "Page Thumbnail"
+        name: "pageLocationThumbnail"
+        widget: "image"
+
       - label: "Citations"
         name: "citations"
         widget: "list"
         field: { label: "Citation", name: "citation" }
-        required: true
+
+      - label: "Contributors"
+        name: "contributors"
+        widget: "list"
+        field: { label: "Username", name: "contributor" }
+
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -57,10 +67,49 @@ collections:
           "numbered-list"
         ]
         editor_components: []
-        required: true
-      - label: "Repeatables"
-        name: "repeatables"
+    
+      - label: "Start Date"
+        name: "startDate"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+
+      - label: "End Date"
+        name: "endDate"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+
+      - label: "Concept Unification Date"
+        name: "cuDate"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+
+      - label: "Map Coordinates"
+        name: "latitudeLongitude"
         widget: "list"
-        fields:
-          - { label: "Name", name: "rp_name", widget: "string" }
-          - { label: "Birthday", name: "rp_bday", widget: "datetime", date)format: "YYYY-MM-DD" }
+        field: { label: "Coordinate", name: "coordinate", widget: "string" }
+
+      - label: "Store Number"
+        name: "storeNumber"
+        widget: "string"
+
+      - label: "Square Footage"
+        name: "sqft"
+        widget: "string"
+
+#      - label: "Stage Shows"
+#        name: "stages"
+#        widget: "list"
+#        fields:
+#          - { label: "Name", name: "stagename", widget: "string"}
+#
+#      - label: "Attractions"
+#
+#      - label: "Animatronics"
+#
+#      - label: "Franchisees"
+#
+#      - label: "Remodels"
+#
+#      - label: "Page Tags"
+#
+#      - label: "Page Categories"
