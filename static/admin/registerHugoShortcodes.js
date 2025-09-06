@@ -1,8 +1,8 @@
 CMS.registerEditorComponent({
   id: "cite",
-  label: "Cite",
+  label: "Citation",
 
-  fields: [{name: "ref", label: "Citation Number (starting from 1)", widget: "number"}],
+  fields: [{name: "ref", label: "Citation reference number (starting from 1)", widget: "number"}],
 
   pattern: /^{{< cite ([0-9]+) >}}/,
 
