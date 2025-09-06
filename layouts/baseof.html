@@ -11,15 +11,5 @@
 {{- end -}}
 </body>
 </html>
-{{- if .IsHome -}}
-  {{- $pages := slice -}}
-  {{- range .Site.RegularPages -}}
-    {{- $pageData := dict 
-      "00-title" .Title
-      "01-content" .Plain
-    -}}
-    {{- $pages = $pages | append $pageData -}}
-  {{- end -}}
-  {{- $json := $pages | jsonify -}}
-  {{- $noop := (resources.FromString "/site.json" $json).Permalink -}} 
-{{- end -}}
+{{- partial "generate-site-json.html" . -}}
+{{- partial "generate-site-csv.html" . -}}
