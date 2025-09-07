@@ -26,7 +26,7 @@ collections:
   - name: "wiki"
     label: "Locations"
     label_singular: "Location"
-    icon: "Pin Drop"
+    icon: "pin_drop"
     folder: "content/wiki"
     filter: { field: "tags", value: ["Locations"] }
     create: true
