@@ -1,8 +1,6 @@
 +++
 title = "Content Test 2"
-citations = [
-  "https://example.com"
-]
+citations = ["https://example.com"]
 +++
 
 {{< wiki-link "Content Test 2" "2nd Content Test" >}}

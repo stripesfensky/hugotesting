@@ -1,15 +1,6 @@
 +++
 title = "Content Test 1"
 citations = ["https://example.com", "Testing citation #1", "https://example.com", "Testing citation #2"]
-latitudeLongitude = ["40.7128", "74.0060"]
-
-[[repeatables]]
-rp_bday = "2025-09-06T13:34:00.000-04:00"
-rp_name = "Test"
-
-[[repeatables]]
-rp_name = "Test 2"
-rp_bday = "2025-09-06T13:35:00.000-04:00"
 +++
 
 ***{{< wiki-link "Content Test 1" >}}*** is the name of this page.
