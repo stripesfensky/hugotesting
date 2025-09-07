@@ -71,10 +71,14 @@ collections:
       - label: "Start Date"
         name: "startDate"
         widget: "string"
+        hint: "Enter the date in format YYYY-MM-DD. Replace with 0000 or 00 for unknown year/month/day."
+        pattern: ['\d{4}-\d{2}-\d{2}', "Date must be in format YYYY-MM-DD"]
 
       - label: "End Date"
         name: "endDate"
         widget: "string"
+        hint: "Enter the date in format YYYY-MM-DD. Leave empty if unknown. Replace with 0000 or 00 for unknown year/month/day."
+        pattern: ['\d{4}-\d{2}-\d{2}', "Date must be in format YYYY-MM-DD"]
 
       - label: "Concept Unification Date"
         name: "cuDate"
