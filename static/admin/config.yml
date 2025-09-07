@@ -86,13 +86,14 @@ collections:
         name: "cuDate"
         widget: "string"
         hint: "Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day."
+        pattern: ['\d{4}-\d{2}-\d{2}', "Date must be in format YYYY-MM-DD"]
 
       - label: "Map Coordinates"
         name: "latitudeLongitude"
         widget: "object"
         fields: 
-          - { label: "Latitude", name: "latitude", widget: "number" }
-          - { label: "Longitude", name: "longitude", widget: "number" }
+          - { label: "Latitude", name: "latitude", widget: "number", value_type: "float" }
+          - { label: "Longitude", name: "longitude", widget: "number", value_type: "float" }
 
       - label: "Store Number"
         name: "storeNumber"
@@ -101,6 +102,7 @@ collections:
       - label: "Square Footage"
         name: "sqft"
         widget: "number"
+        value_type: "float"
 
 #     - label: "Stage Shows"
 #       name: "stages"
