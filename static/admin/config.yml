@@ -37,7 +37,7 @@ collections:
         required: true
 
       - label: "Page Thumbnail"
-        name: "pageLocationThumbnail"
+        name: "pageThumbnailFile"
         widget: "image"
         allow_multiple: false
         choose_url: false
