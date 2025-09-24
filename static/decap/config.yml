@@ -57,7 +57,7 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-        editor_components: ['wiki-link-inline']
+        editor_components: []
     
       - label: "Start Date"
         name: "startDate"
