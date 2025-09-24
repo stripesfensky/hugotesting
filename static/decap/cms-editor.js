@@ -1,4 +1,4 @@
-import WikiLinkControl from 'WikiLinkControl.js';
+import WikiLinkControl from './WikiLinkControl';
 
 CMS.registerWidget({
   name: 'wiki-link-inline',
