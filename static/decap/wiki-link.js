@@ -10,10 +10,10 @@ CMS.registerEditorComponent({
   ],
   fromBlock: function(match) {
     return {
-      title: match[1]
+      page: match[1]
     };
   },
   toBlock: function(data) {
-    return `{{< wiki-link "${data.title}" >}}`;
+    return `{{< wiki-link "${data.page}" >}}`;
   }
 });

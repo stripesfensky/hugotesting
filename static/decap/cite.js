@@ -14,6 +14,6 @@ CMS.registerEditorComponent({
     };
   },
   toBlock: function(data) {
-    return `{{< cite "${data.ref}" >}}`;
+    return `{{< cite ${data.ref} >}}`;
   }
 });
