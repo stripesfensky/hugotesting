@@ -1,24 +1,32 @@
-// Register a custom toolbar plugin for the markdown editor.
-// This function adds a button that uses a simple callback to insert text.
-CMS.registerEditorPlugin({
-  // A unique name for your plugin.
-  // This is what you'll reference in config.yml.
-  name: 'prompt-shortcode-plugin',
-  
+// A custom button control for the markdown editor.
+const promptButtonControl = {
+  // A unique ID for the button.
+  id: 'prompt-insert-text',
   // The label for the button in the toolbar.
-  label: 'Insert Shortcode',
-  
-  // The function to execute when the button is clicked.
-  // The 'editor' object is the ProseMirror editor instance.
+  label: 'Add Text',
+  // The `action` function is the key to this solution.
+  // It is a simple function that is called when the button is clicked.
   action: (editor) => {
-    // 1. Get user input with a native JavaScript prompt.
-    const text = window.prompt('Enter your shortcode text:');
-    
-    // 2. If the user provided text, insert it into the editor.
+    const text = window.prompt('Enter your text:');
     if (text !== null) {
-      // The `editor.insertText()` method is the key to inline insertion.
-      // It places the content at the current cursor position.
-      editor.insertText(`{{< prompt_text "${text}" >}}`);
+      editor.insertText(`{{< shortcode "${text}" >}}`);
     }
   },
+};
+
+// The `options` property is where the magic happens.
+// It allows you to define controls for the editor's toolbar.
+CMS.registerEditorComponent({
+  id: 'prompt-button-component',
+  label: 'Prompt Button',
+  options: {
+    // The `controls` array defines your custom buttons.
+    controls: [
+      promptButtonControl,
+    ],
+  },
+  // These properties are required but do not affect the behavior of the custom button.
+  toBlock: () => '',
+  fromBlock: () => ({}),
+  fields: [],
 });
