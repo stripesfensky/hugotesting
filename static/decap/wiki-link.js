@@ -3,7 +3,7 @@ CMS.registerEditorComponent({
   label: 'Wiki Link',
   fields: [
     { 
-      name: 'title', 
+      name: 'page', 
       label: 'Page Title', 
       widget: 'string' 
     }
@@ -14,6 +14,6 @@ CMS.registerEditorComponent({
     };
   },
   toBlock: function(data) {
-    return `{{< wiki-link "${data.text}" >}}`;
+    return `{{< wiki-link "${data.title}" >}}`;
   }
 });

@@ -10,10 +10,10 @@ CMS.registerEditorComponent({
   ],
   fromBlock: function(match) {
     return {
-      title: match[1]
+      ref: match[1]
     };
   },
   toBlock: function(data) {
-    return `{{< cite "${data.title}" >}}`;
+    return `{{< cite "${data.ref}" >}}`;
   }
 });
