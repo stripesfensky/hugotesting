@@ -1,4 +1,3 @@
-import CMS from 'decap-cms-app';
 import PromptButtonWidget from './PromptButtonWidget'; // Import the new widget
 
 // Register the custom widget.
