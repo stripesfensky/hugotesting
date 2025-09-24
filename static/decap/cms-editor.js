@@ -1,4 +1,3 @@
-import CMS from 'decap-cms-app';
 import WikiLinkControl from 'WikiLinkControl.js';
 
 CMS.registerWidget({
