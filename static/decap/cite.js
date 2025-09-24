@@ -1,11 +1,11 @@
 CMS.registerEditorComponent({
-  id: 'wiki-link',
-  label: 'Wiki Link',
+  id: 'cite',
+  label: 'Citation Reference',
   fields: [
     { 
-      name: 'title', 
-      label: 'Page Title', 
-      widget: 'string' 
+      name: 'ref', 
+      label: 'Reference Number', 
+      widget: 'number' 
     }
   ],
   fromBlock: function(match) {
@@ -14,6 +14,6 @@ CMS.registerEditorComponent({
     };
   },
   toBlock: function(data) {
-    return `{{< wiki-link "${data.text}" >}}`;
+    return `{{< cite "${data.title}" >}}`;
   }
 });
