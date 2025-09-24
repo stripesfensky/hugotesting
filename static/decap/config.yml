@@ -57,7 +57,7 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-        editor_components: ['cite', 'wiki-link', 'prompt-insert-text']
+        editor_components: ['cite', 'wiki-link', 'prompt-button-component']
     
       - label: "Start Date"
         name: "startDate"
