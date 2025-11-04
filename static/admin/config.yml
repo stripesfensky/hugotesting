@@ -56,7 +56,7 @@ collections:
 
       - label: "Body"
         name: "body"
-        widget: "markdown-with-prompt-button"
+        widget: "markdown"
     
       - label: "Start Date"
         name: "startDate"
