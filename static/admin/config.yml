@@ -41,7 +41,6 @@ collections:
       - label: "Page Thumbnail"
         name: "pageThumbnailFile"
         widget: "image"
-        allow_multiple: false
         choose_url: false
 
       - label: "Citations"
@@ -62,19 +61,19 @@ collections:
         name: "startDate"
         widget: "string"
         hint: "Enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day."
-        pattern: ['\d{4}-\d{2}-\d{2}', "Date must be in format YYYY-MM-DD"]
+        pattern: ['\d{4}-\d{2}-\d{2}$', "Date must be in format YYYY-MM-DD"]
 
       - label: "End Date"
         name: "endDate"
         widget: "string"
         hint: "Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day."
-        pattern: ['\d{4}-\d{2}-\d{2}', "Date must be in format YYYY-MM-DD"]
+        pattern: ['\d{4}-\d{2}-\d{2}$', "Date must be in format YYYY-MM-DD"]
 
       - label: "Concept Unification Date"
         name: "cuDate"
         widget: "string"
         hint: "Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day."
-        pattern: ['\d{4}-\d{2}-\d{2}', "Date must be in format YYYY-MM-DD"]
+        pattern: ['\d{4}-\d{2}-\d{2}$', "Date must be in format YYYY-MM-DD"]
 
       - label: "Map Coordinates"
         name: "latitudeLongitude"
@@ -92,11 +91,27 @@ collections:
         widget: "number"
         value_type: "float"
 
-#     - label: "Stage Shows"
-#       name: "stages"
-#       widget: "list"
-#       fields:
-#         - { label: "Name", name: "stagename", widget: "string"}
+      - label: "Stage Shows"
+        name: "stages"
+        widget: "list"
+        fields:
+          - label: "Stage Show"
+            name: "stageshow"
+            widget: "object"
+            fields:
+              - label: "Stage Page Title"
+                name: "stage"
+                widget: "string"
+              - label: "Debut Date"
+                name: "stage_debutDate"
+                widget: "string"
+                hint: "Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day."
+                pattern: ['\d{4}-\d{2}-\d{2}$', "Date must be in format YYYY-MM-DD"]
+              - label: "Removal Date"
+                name: "stage_removalDate"
+                widget: "string"
+                hint: "Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day."
+                pattern: ['\d{4}-\d{2}-\d{2}$', "Date must be in format YYYY-MM-DD"]
 #
 #     - label: "Attractions"
 #
