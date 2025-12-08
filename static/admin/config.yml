@@ -56,6 +56,21 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        buttons: [
+          bold,
+          italic,
+          strikethrough,
+          heading-one,
+          heading-two,
+          heading-three,
+          heading-four,
+          heading-five,
+          heading-six,
+          bulleted-list,
+          numbered-list,
+          quote
+        ]
+        editor_components: [wiki-link]
     
       - label: "Start Date"
         name: "startDate"
