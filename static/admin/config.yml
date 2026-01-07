@@ -27,7 +27,7 @@ collections:
     label_singular: "Location"
     icon: "pin_drop"
     folder: "content/wiki"
-    filter: { field: "tags", value: "Locations" }
+    # filter: { field: "tags", value: "Locations" }
     create: true
     extension: md
     format: toml-frontmatter
@@ -156,7 +156,7 @@ collections:
     label_singular: "Animatronic Show"
     icon: "curtains"
     folder: "content/wiki"
-    filter: { field: "tags", value: "Animatronic Shows" }
+    # filter: { field: "tags", value: "Animatronic Shows" }
     create: true
     extension: md
     format: toml-frontmatter
