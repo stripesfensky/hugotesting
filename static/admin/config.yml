@@ -3,8 +3,6 @@
 backend:
   name: github
   repo: stripesfensky/hugotesting
-  open_authoring: true
-  base_url: https://sveltia-cms-auth.plushypuppy.workers.dev
 
 publish_mode: editorial_workflow
 
