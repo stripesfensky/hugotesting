@@ -8,28 +8,5 @@
   </head>
   <body>
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
-    <script>
-      CMS.registerEditorComponent({
-        id: "wiki-link",
-        label: "Wiki Link",
-        fields: [{ 
-          name: 'title', 
-          label: 'Page Title', 
-          widget: 'string' 
-        }],
-        pattern: /{{< wiki-link "(.*?)" >}}/,
-        fromBlock: function(match) {
-          return {
-            title: match[1]
-          };
-        },
-        toBlock: function(data) {
-          return `{{< wiki-link "${data.title}" >}}`;
-        },
-        toPreview: function(data) {
-          return ``;
-        }
-      });
-    </script>
   </body>
 </html>
