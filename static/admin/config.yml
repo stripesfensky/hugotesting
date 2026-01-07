@@ -10,7 +10,7 @@ publish_mode: editorial_workflow
 media_folder: "static/photos"
 public_folder: "/photos"
 
-site_url: https://hugotesting-k2g6v.ondigitalocean.app/
+site_url: https://hugotesting-k2g6v.ondigitalocean.app
 
 show_preview_links: false
 
