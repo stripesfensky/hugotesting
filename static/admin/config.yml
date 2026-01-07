@@ -148,8 +148,10 @@ collections:
 #
       - label: "Page Tags"
         name: "tags"
-        widget: "hidden"
+        widget: "select"
+        options: ["Locations"]
         default: ["Locations"]
+        readonly: true
 
 #     - label: "Page Categories"
 
@@ -206,5 +208,7 @@ collections:
 
       - label: "Page Tags"
         name: "tags"
-        widget: "hidden"
+        widget: "select"
+        options: ["Animatronic Shows"]
         default: ["Animatronic Shows"]
+        readonly: true
