@@ -1,9 +1,3 @@
-{{- $lookup := index .Params 0 -}}
-{{- $articles := where .Site.RegularPages "Title" $lookup -}}
-{{- $title := or (index .Params 1) $lookup -}}
-
-{{- with index $articles 0 -}}
-  <a href="{{ .RelPermalink }}">{{ $title }}</a>
-{{- else -}}
-  <a href="#" class="linkerror">{{ $lookup }}</a>
-{{- end -}}
+{{- $name := index .Params 0 -}}
+{{- $context := or (index .Params 1) $name -}}
+{{- partial "wiki-link.html" (dict "name" $name "context" $context) . -}}

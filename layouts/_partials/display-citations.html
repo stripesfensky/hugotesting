@@ -1,8 +1,8 @@
-{{- if .Params.citations -}}
+{{- with .Params.citations -}}
   <div class="citations">
     <h2>References</h2>
     <ol>
-      {{- range $i, $v := .Params.citations -}}
+      {{- range $i, $v := . -}}
         <li id="citation-{{- add $i 1 -}}">
           {{- if (or (strings.Contains $v "http://") (strings.Contains $v "https://")) -}}
             {{- if not (strings.Contains $v "<a href=") -}}

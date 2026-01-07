@@ -1,0 +1,21 @@
+{{- with .Params.animatronic_shows -}}
+<h2>Animatronic Shows</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Animatronic Show</th>
+      <th>Debut Date</th>
+      <th>Removal Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{- range . -}}
+    <tr>
+      <td>{{- partial "wiki-link.html" (dict "lookup" .animatronic_show.show_title "context" $) . -}}</td>
+      <td>{{- .animatronic_show.show_debutdate -}}</td>
+      <td>{{- .animatronic_show.show_removaldate -}}</td>
+    </tr>
+    {{- end -}}
+  </tbody>
+</table>
+{{- end -}}

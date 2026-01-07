@@ -21,4 +21,4 @@ show_title = "Studio C Beta"
 show_debutdate = "2003-00-00"
 show_removaldate = ""
 +++
-Test test test
+Test test test {{< wiki-link "test lookup" "test title" >}} {{< wiki-link "Studio C Beta" "SCB" >}} {{< wiki-link "1-Stage" >}} {{< wiki-link "test test" >}}

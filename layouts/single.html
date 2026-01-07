@@ -2,5 +2,8 @@
   {{- .Page.Store.Set "citationsCount" dict -}}
   <h1>{{- .Title -}}</h1>
   {{- .Content -}}
+  {{- if eq .Params.tag "Locations" -}}
+    {{- partial "table-animatronic_shows.html" . -}}
+  {{- end -}}
   {{- partial "display-citations.html" . -}}
 {{- end -}}
