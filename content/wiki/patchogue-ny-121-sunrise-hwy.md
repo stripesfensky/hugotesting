@@ -7,7 +7,7 @@ startDate = "1993-00-00"
 endDate = ""
 cuDate = ""
 storeNumber = 496
-tags = "Locations"
+tag = "Locations"
 
 [[animatronic_shows]]
 [animatronic_shows.animatronic_show]

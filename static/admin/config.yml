@@ -27,7 +27,7 @@ collections:
     label_singular: "Location"
     icon: "pin_drop"
     folder: "content/wiki"
-    # filter: { field: "tags", value: ["Locations"] }
+    filter: { field: "tags", value: "Locations" }
     create: true
     extension: md
     format: toml-frontmatter
@@ -146,12 +146,10 @@ collections:
 #
 #     - label: "Remodels"
 #
-      - label: "Page Tags"
-        name: "tags"
-        widget: "select"
-        options: ["Locations"]
-        default: ["Locations"]
-        readonly: true
+      - label: "Tag"
+        name: "tag"
+        widget: "hidden"
+        default: "Locations"
 
 #     - label: "Page Categories"
 
@@ -160,7 +158,7 @@ collections:
     label_singular: "Animatronic Show"
     icon: "curtains"
     folder: "content/wiki"
-    # filter: { field: "tags", value: ["Animatronic Shows"] }
+    filter: { field: "tags", value: "Animatronic Shows" }
     create: true
     extension: md
     format: toml-frontmatter
@@ -206,9 +204,7 @@ collections:
         ]
         required: false
 
-      - label: "Page Tags"
-        name: "tags"
-        widget: "select"
-        options: ["Animatronic Shows"]
-        default: ["Animatronic Shows"]
-        readonly: true
+      - label: "Tag"
+        name: "tag"
+        widget: "hidden"
+        default: "Animatronic Shows"
