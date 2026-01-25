@@ -11,7 +11,7 @@
   <tbody>
     {{- range . -}}
     <tr>
-      <td>{{- partial "wiki-link.html" (dict "lookup" .animatronic_show.show_title "context" $) . -}}</td>
+      <td>{{- partial "wiki-link.html" (dict "name" .animatronic_show.show_title) . -}}</td>
       <td>{{- .animatronic_show.show_debutdate -}}</td>
       <td>{{- .animatronic_show.show_removaldate -}}</td>
     </tr>

@@ -5,10 +5,34 @@
     <title>Search Demo</title>
     <link rel="stylesheet" href="../style.css">
     <script src="search.js" defer></script>
+    <style>
+      #search {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        div {
+          border: 1px solid var(--white);
+          border-radius: 5px;
+        }
+      }
+
+      .dropdown {
+        flex-grow: 1;
+      }
+
+      .text {
+        flex-grow: 2;
+      }
+    </style>
   </head>
   <body>
       <div id="search">
-        This is my concept for a new search engine.
+        <div class="categories dropdown"></div>
+        <div class="tags dropdown"></div>
+        <div class="text">
+          <input type="text" id="search-text" placeholder="Start typing to navigate Cheese-E-Pedia" />
+        </div>
       </div>
   </body>
 </html>
