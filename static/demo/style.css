@@ -13,6 +13,34 @@
     src: url('aleo.otf') format('opentype');
 }
 
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    45% {
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+
+    45.01% {
+        transform: translateX(var(--container-width));
+        opacity: 0;
+    }
+
+    45.02% {
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 :root {
     --navy: #243354;
     --darkblue: #121C33;
@@ -56,8 +84,8 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     border: solid 20px transparent;
-       box-sizing: border-box;
-    height: 145px;
+    box-sizing: border-box;
+    height: 200px;
     min-width: 1024px;
 }
 
@@ -238,33 +266,26 @@ nav li {
 }
 
 .info-header-wrap {
-    position: relative;
-    overflow: hidden;
     min-height: 20pt;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
 }
 
 .info-header {
-    position: absolute;
+    display: inline-block;
+    will-change: transform;
+    --container-width: 100%;
 }
 
-.info-header h2 {
-    white-space: nowrap;
+.info-header h2, h3 {
+    font-weight: 400;
+    margin: 0;
 }
 
 .page-grid li:hover .info-header {
-    animation: marquee linear 10s infinite;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0%);
-    }
-    50% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+    animation: marquee linear infinite;
 }
 
 .result, .result * {
