@@ -18,6 +18,34 @@ slug:
 editor:
   preview: false
 
+reusable_widgets:
+  - name: &title
+    label: Title
+    widget: string
+
+  - name: &body
+    label: Body
+    widget: markdown
+    buttons: [
+      bold,
+      italic,
+      strikethrough,
+      heading-one,
+      heading-two,
+      heading-three,
+      heading-four,
+      heading-five,
+      heading-six,
+      bulleted-list,
+      numbered-list,
+      quote
+    ]
+    required: false
+
+  - name: &tag
+    label: Tag
+    widget: hidden
+
 collections:
   - name: meta
     label: Meta Page
@@ -26,9 +54,10 @@ collections:
     format: toml-frontmatter
     icon: desktop_landscape
     fields:
-      - name: title
-        label: Title
-        widget: string
+      - name: *title
+      - name: *body
+      - name: *tag
+        default: Meta
 
   - name: locations
     label: Locations
@@ -38,9 +67,7 @@ collections:
     icon: pin_drop
     filter: { field: tag, value: Locations }
     fields:
-      - name: title
-        label: Title
-        widget: string
+      - name: *title
 
       - name: pageThumbnailFile
         label: Page Thumbnail
@@ -60,24 +87,7 @@ collections:
         field: { label: Username, name: contributor }
         required: false
 
-      - name: body
-        label: Body
-        widget: markdown
-        buttons: [
-          bold,
-          italic,
-          strikethrough,
-          heading-one,
-          heading-two,
-          heading-three,
-          heading-four,
-          heading-five,
-          heading-six,
-          bulleted-list,
-          numbered-list,
-          quote
-        ]
-        required: false
+      - name: *body
     
       - name: startDate
         label: Start Date
@@ -154,9 +164,7 @@ collections:
 #
 #     - label: Remodels
 #
-      - name: tag
-        label: Tag
-        widget: hidden
+      - name: *tag
         default: Locations
 
 #     - label: Page Categories
@@ -169,9 +177,7 @@ collections:
     filter: { field: tag, value: Animatronic Shows }
     icon: curtains
     fields:
-      - name: title
-        label: Title
-        widget: string
+      - name: *title
 
       - name: pageThumbnailFile
         label: Page Thumbnail
@@ -191,26 +197,7 @@ collections:
         field: { label: Username, name: contributor }
         required: false
 
-      - name: body
-        label: Body
-        widget: markdown
-        buttons: [
-          bold,
-          italic,
-          strikethrough,
-          heading-one,
-          heading-two,
-          heading-three,
-          heading-four,
-          heading-five,
-          heading-six,
-          bulleted-list,
-          numbered-list,
-          quote
-        ]
-        required: false
+      - name: *body
 
-      - name: tag
-        label: Tag
-        widget: hidden
+      - name: *tag
         default: Animatronic Shows
