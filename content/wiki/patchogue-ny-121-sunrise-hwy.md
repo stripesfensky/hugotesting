@@ -10,6 +10,9 @@ storeNumber = 496
 tag = "Locations"
 
 [coordinates]
+latitude = 22
+longitude = 33
+
 [[animatronic_shows]]
 [animatronic_shows.animatronic_show]
 show_title = "1-Stage"
