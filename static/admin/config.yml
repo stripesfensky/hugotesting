@@ -100,12 +100,16 @@ collections:
         pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
         required: false
 
-      - name: latitudeLongitude
-        label: Map Coordinates
+      - name: coordinates
+        label: Coordinates
         widget: object
         fields: 
-          - { label: Latitude, name: latitude, widget: number, value_type: float }
-          - { label: Longitude, name: longitude, widget: number, value_type: float }
+          - name: latitude
+            label: Latitude
+            widget: number
+          - name: longitude
+            label: Longitude
+            widget: number
         required: false
 
       - name: storeNumber
