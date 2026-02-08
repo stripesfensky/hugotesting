@@ -30,37 +30,131 @@ collections:
       - name: title
         label: Title
         widget: string
+      - name: tags
+        label: Tags
+        widget: select
+        min: 1
+        multiple: true
+        options:
+          - Advanced Animations
+          - AnimatedFX
+          - AVG Technologies
+          - Celebration Station
+          - Chuck E. Cheese in the Galaxy 5000
+          - Chuck E. Cheese's
+          - Circus Pizza
+          - Creative Engineering
+          - Creative Presentations
+          - Disney Experiences
+          - Five Nights at Freddy's
+          - Five Nights at Freddy's (Movie)
+          - Five Nights at Freddy's 2 (Movie)
+          - Golding Leisure
+          - Heimotion
+          - Hofmann Figuren
+          - Jim Henson's Creature Shop
+          - Jungle Jim's
+          - Magic Robotics, Inc. # Magic Robotics Inc.
+          - Pasqually's Pizza and Wings # Pasqually's Pizza & Wings
+          - Peter Piper Pizza
+          - Pizza Time Theatre
+          - Sally Corporation
+          - Setmakers
+          - ShowBiz Pizza Place
+          - Six Flags
+          - The Rock-afire Explosion (Movie)
+          - Villalobos Producciones
+          - VP Animations
+          - Walt Disney Imagineering
+          - Other Companies and Brands # Other Manufacturers
+          - Other FECs
+          # - Site Content # Cheese-E-Pedia (META)
+          # - User-Generated Content (USERS/TRANSCRIPTIONS)
+
+      - name: category
+        label: Category
+        widget: select
+        min: 1
+        options:
+          - Ad Vehicles
+          - Animatronic Control Systems
+          - Animatronic Parts
+          - Animatronic Preservation
+          - Animatronic Shows
+          - Animatronics
+          - Arcades and Attractions
+          - Characters
+          - Commercials
+          - Companies and Brands # Companies/Brands
+          - Company Media
+          - Costume Preservation
+          - Costumed Characters
+          - Documents # Merge in Corporate Documents
+          - Employee Wear
+          - Events
+          - Family Vision
+          - History
+          - In-Store Merchandise
+          - Live Shows
+          - Locations # Merge in Cancelled Locations
+          - Menu Items
+          - Movies
+          - News Footage
+          - Other Software and Systems # Other Systems
+          - Products
+          - Programming Systems
+          - Promotional Material
+          - Puppets
+          - Remodels and Initiatives
+          - Retrofits
+          - ShowBiz Pizza Programs
+          - Showtape Formats
+          - Showtapes
+          - Simulators
+          - Social Media and Websites
+          - Stage Variations
+          - Store Fixtures
+          - Tickets
+          - Tokens
+          - Video Games
+          # - Site Content # Meta (META)
+          # - Reviews (REVIEWS)
+          # - Photos (PHOTOS)
+          # - Transcriptions (TRANSCRIPTIONS)
+          # - User (USER)
+          # - Videos (VIDEOS)
 
       - name: thumbnail
         label: Page Thumbnail
         widget: image
         choose_url: false
         required: false
+        hint: A photo page is required for the image you choose as the page thumbnail.
 
       - name: citations
         label: Citations
         label_singular: Citation
         widget: list
-        field:
-          - name: citation
-            label: Citation (text or URL)
-            widget: string
+        field: { name: citation, label: Citation, widget: string }
         required: false
       
       - name: contributors
         label: Contributors
         label_singular: Contributor
         widget: list
-        field:
-          - name: contributor
-            label: Username
-            widget: string
+        field: { name: contributor, label: Contributor, widget: string }
         required: false
 
-      - name: daterange
-        label: Date or Date Range
-        widget: object
-        fields:
-          - name: enabled
-            label: Enabled
-            widget: boolean
+      - name: start
+        label: Start Date
+        widget: string
+        hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+        pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+        required: false
+
+      - name: end
+        label: End Date
+        widget: string
+        hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+        pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+        required: false
