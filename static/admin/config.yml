@@ -178,23 +178,24 @@ collections:
         editor_components: []
         required: false
 
-      - name: addfields
-        label: Additional Fields
+      - name: params
+        label: Additional Parameters
         widget: list
         fields:
-          - name: addfield
-            label: Additional Field
+          - name: param
+            label: Parameter
             widget: object
             types:
-              - name: akafield
-                label: AKA Field
+              - name: param_aka
+                label: AKA
                 widget: object
                 fields:
                   - name: aka
                     label: AKA
                     widget: string
-              - name: animatronicsfield
-                label: Animatronics Field
+
+              - name: param_animatronics
+                label: Animatronics
                 widget: object
                 fields:
                   - name: animatronics
