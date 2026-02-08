@@ -19,30 +19,19 @@ editor:
   preview: false
 
 collections:
-  - name: meta
-    label: Meta Page
-    label_singular: Meta Pages
-    folder: content/meta
+  - name: article
+    label: Articles
+    label_singular: Articles
+    folder: content/wiki
     format: toml-frontmatter
     icon: desktop_landscape
+    summary: '{{title}} ({{date}})'
     fields:
       - name: title
         label: Title
         widget: string
 
-  - name: locations
-    label: Locations
-    label_singular: Location
-    folder: content/wiki
-    format: toml-frontmatter
-    icon: pin_drop
-    filter: { field: tag, value: Locations }
-    fields:
-      - name: title
-        label: Title
-        widget: string
-
-      - name: pageThumbnailFile
+      - name: thumbnail
         label: Page Thumbnail
         widget: image
         choose_url: false
@@ -50,172 +39,28 @@ collections:
 
       - name: citations
         label: Citations
+        label_singular: Citation
         widget: list
-        field: { label: Citation, name: citation }
+        field:
+          - name: citation
+            label: Citation (text or URL)
+            widget: string
         required: false
-
+      
       - name: contributors
         label: Contributors
+        label_singular: Contributor
         widget: list
-        field: { label: Username, name: contributor }
+        field:
+          - name: contributor
+            label: Username
+            widget: string
         required: false
 
-      - name: body
-        label: Body
-        widget: markdown
-        buttons: [
-          bold,
-          italic,
-          strikethrough,
-          heading-one,
-          heading-two,
-          heading-three,
-          heading-four,
-          heading-five,
-          heading-six,
-          bulleted-list,
-          numbered-list,
-          quote
-        ]
-        required: false
-    
-      - name: startDate
-        label: Start Date
-        widget: string
-        hint: Enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
-        pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
-        required: false
-
-      - name: endDate
-        label: End Date
-        widget: string
-        hint: Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day.
-        pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
-        required: false
-
-      - name: cuDate
-        label: Concept Unification Date
-        widget: string
-        hint: Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day.
-        pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
-        required: false
-
-      - name: coordinates
-        label: Coordinates
+      - name: daterange
+        label: Date or Date Range
         widget: object
-        fields: 
-          - name: latitude
-            label: Latitude
-            widget: number
-            required: false
-          - name: longitude
-            label: Longitude
-            widget: number
-            required: false
-
-      - name: storeNumber
-        label: Store Number
-        widget: number
-        required: false
-
-      - name: sqft
-        label: Square Footage
-        widget: number
-        value_type: float
-        required: false
-
-      - name: animatronic_shows
-        label: Animatronic Shows
-        widget: list
         fields:
-          - name: animatronic_show
-            label: Animatronic Show
-            widget: object
-            fields:
-              - name: show_title
-                label: Page Title
-                widget: string
-
-              - name: show_debutdate
-                label: Debut Date
-                widget: string
-                hint: Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day.
-                pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
-                required: false
-
-              - name: show_removaldate
-                label: Removal Date
-                widget: string
-                hint: Enter the date in format YYYY-MM-DD. Leave empty if unknown or not applicable. Replace with 0s for unknown year/month/day.
-                pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
-                required: false
-        required: false
-#
-#     - label: Attractions
-#
-#     - label: Animatronics
-#
-#     - label: Franchisees
-#
-#     - label: Remodels
-#
-      - name: tag
-        label: Tag
-        widget: hidden
-        default: Locations
-
-#     - label: Page Categories
-
-  - name: animatronic_shows
-    label: Animatronic Shows
-    label_singular: Animatronic Show
-    folder: content/wiki
-    format: toml-frontmatter
-    filter: { field: tag, value: Animatronic Shows }
-    icon: curtains
-    fields:
-      - name: title
-        label: Title
-        widget: string
-
-      - name: pageThumbnailFile
-        label: Page Thumbnail
-        widget: image
-        choose_url: false
-        required: false
-
-      - name: citations
-        label: Citations
-        widget: list
-        field: { label: Citation, name: citation }
-        required: false
-
-      - name: contributors
-        label: Contributors
-        widget: list
-        field: { label: Username, name: contributor }
-        required: false
-
-      - name: body
-        label: Body
-        widget: markdown
-        buttons: [
-          bold,
-          italic,
-          strikethrough,
-          heading-one,
-          heading-two,
-          heading-three,
-          heading-four,
-          heading-five,
-          heading-six,
-          bulleted-list,
-          numbered-list,
-          quote
-        ]
-        required: false
-
-      - name: tag
-        label: Tag
-        widget: hidden
-        default: Animatronic Shows
+          - name: enabled
+            label: Enabled
+            widget: boolean

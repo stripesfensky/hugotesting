@@ -4,17 +4,30 @@ title = ""
 thumbnail = ""
 citations = []
 contributors = []
+category = ""
 tags = []
-type = ""
+
+[daterange]
+enabled = false
+single = false
+start = "0000-00-00"
+end = "0000-00-00"
 
 [[downloads]]
 [downloads.download]
 download_title = ""
 download_url = ""
 
-# Location-specific fields
-opened = "0000-00-00"
-closed = "0000-00-00"
+# Objects (Ad Vehicles, )
+[dimensions]
+
+# Animatronic Parts
+[[measurements]]
+[measurements.measurement]
+measurement_label = ""
+measurement_millimeters = 0.00
+
+# Locations (Cancelled Locations, Locations)
 sqft = 0.00
 cancelled = false
 
@@ -22,10 +35,10 @@ cancelled = false
 latitude = 0.00
 longitude = 0.00
 
-[[packages]]
-[packages.package]
-package_title = ""
-package_debut = "0000-00-00"
+[[initiatives]]
+[initiatives.initiative]
+initiative_title = ""
+initiative_debut = "0000-00-00"
 
 [[stages]]
 [stages.stage]
@@ -47,5 +60,4 @@ attraction_title = ""
 attraction_debut = "0000-00-00"
 attraction_removal = "0000-00-00"
 attraction_notes = ""
-
 +++
