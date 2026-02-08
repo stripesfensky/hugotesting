@@ -157,3 +157,74 @@ collections:
         hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
         pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
         required: false
+      
+      - name: body
+        label: Body
+        widget: richtext
+        buttons: [
+          bold,
+          italic,
+          strikethrough,
+          heading-one,
+          heading-two,
+          heading-three,
+          heading-four,
+          heading-five,
+          heading-six,
+          bulleted-list,
+          numbered-list,
+          quote
+        ]
+        editor_components: []
+        required: false
+
+      - name: addfields
+        label: Additional Fields
+        widget: list
+        fields:
+          - name: addfield
+            label: Additional Field
+            widget: object
+            types:
+              - name: akafield
+                label: AKA Field
+                widget: object
+                fields:
+                  - name: aka
+                    label: AKA
+                    widget: string
+              - name: animatronicsfield
+                label: Animatronics Field
+                widget: object
+                fields:
+                  - name: animatronics
+                    label: Animatronics
+                    widget: list
+                    fields:
+                    - name: animatronic
+                      label: Animatronic
+                      widget: object
+                      fields:
+                        - name: animatronic_title
+                          label: Title
+                          widget: string
+                        - name: animatronic_debut
+                          label: Debut
+                          widget: string
+                          hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                          required: false
+                        - name: animatronic_removal
+                          label: Removal
+                          widget: string
+                          hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                          required: false
+                        - name: animatronic_serial
+                          label: Serial
+                          widget: string
+                          required: false
+                        - name: animatronic_status
+                          label: Status
+                          widget: string
+                          required: false
