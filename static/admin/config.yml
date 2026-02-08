@@ -229,3 +229,4 @@ collections:
                           label: Status
                           widget: string
                           required: false
+        required: false
