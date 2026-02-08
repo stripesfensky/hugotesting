@@ -22,8 +22,9 @@ collections:
     label_singular: Articles
     folder: content/wiki
     format: toml-frontmatter
-    icon: desktop_landscape
-    summary: '{{title}} ({{date}})'
+    icon: docs
+    summary: "{{category}} &nbsp; // &nbsp; {{title}} &nbsp; // &nbsp; Last updated on {{commit_date | date('MMMM D, YYYY')}} at {{commit_date | date('h:mm:ss A')}}"
+    sortable_fields: [category]
     fields:
       - name: title
         label: Title
@@ -127,7 +128,7 @@ collections:
         widget: image
         choose_url: false
         required: false
-        hint: A photo page is required for the image you choose as the page thumbnail.
+        hint: A photo page is required for the thumbnail image to display properly.
 
       - name: citations
         label: Citations
