@@ -1,21 +1,15 @@
 backend:
   name: github
   repo: stripesfensky/hugotesting
-
 media_folder: /static/photos
 public_folder: /photos
-
 site_url: https://hugotesting-k2g6v.ondigitalocean.app
-
 show_preview_links: false
-
 slug:
   encoding: ascii
   clean_accents: true
-
 editor:
   preview: false
-
 collections:
   - name: article
     label: Articles
@@ -69,7 +63,6 @@ collections:
           - Other FECs
           # - Site Content # Cheese-E-Pedia (META)
           # - User-Generated Content (USERS/TRANSCRIPTIONS)
-
       - name: category
         label: Category
         widget: select
@@ -122,42 +115,36 @@ collections:
           # - Transcriptions (TRANSCRIPTIONS)
           # - User (USER)
           # - Videos (VIDEOS)
-
       - name: thumbnail
         label: Page Thumbnail
         widget: image
         choose_url: false
         required: false
         hint: A photo page is required for the thumbnail image to display properly.
-
       - name: citations
         label: Citations
         label_singular: Citation
         widget: list
         field: { name: citation, label: Citation, widget: string }
         required: false
-      
       - name: contributors
         label: Contributors
         label_singular: Contributor
         widget: list
         field: { name: contributor, label: Contributor, widget: string }
         required: false
-
       - name: start
         label: Start Date
         widget: string
         hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
         pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
         required: false
-
       - name: end
         label: End Date
         widget: string
         hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
         pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
         required: false
-      
       - name: body
         label: Body
         widget: richtext
@@ -177,9 +164,9 @@ collections:
         ]
         editor_components: []
         required: false
-
       - name: params
         label: Additional Parameters
+        label_singular: Additional Parameter
         widget: list
         fields:
           - name: param
@@ -193,13 +180,13 @@ collections:
                   - name: aka
                     label: AKA
                     widget: string
-
               - name: param_animatronics
                 label: Animatronics
                 widget: object
                 fields:
                   - name: animatronics
                     label: Animatronics
+                    label_singular: Animatronic
                     widget: list
                     fields:
                     - name: animatronic
@@ -229,4 +216,286 @@ collections:
                           label: Status
                           widget: string
                           required: false
+              - name: param_attractions
+                label: Arcades and Attractions
+                widget: object
+                fields:
+                  - name: attractions
+                    label: Arcades and Attractions
+                    label_singular: Arcade or Attraction
+                    widget: list
+                    fields:
+                    - name: attraction
+                      label: Arcade or Attraction
+                      widget: object
+                      fields:
+                        - name: attraction_title
+                          label: Title
+                          widget: string
+                        - name: attraction_debut
+                          label: Debut
+                          widget: string
+                          hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                          required: false
+                        - name: attraction_removal
+                          label: Removal
+                          widget: string
+                          hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                          required: false
+                        - name: attraction_notes
+                          label: Notes
+                          widget: string
+                          required: false
+              - name: param_credits
+                label: Credits
+                widget: object
+                fields:
+                  - name: credits
+                    label: Credits
+                    label_singular: Credit
+                    widget: list
+                    fields:
+                    - name: credit
+                      label: Credit
+                      widget: object
+                      fields:
+                        - name: credits_person
+                          label: Person
+                          widget: string
+                        - name: credits_role
+                          label: Role
+                          widget: string
+                          required: false
+              - name: param_cu
+                label: CU Conversion Date
+                widget: object
+                fields:
+                  - name: cu
+                    label: CU Conversion Date
+                    widget: string
+                    hint: Enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                    pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+              - name: param_downloads
+                label: Download Links
+                widget: object
+                fields:
+                  - name: downloads
+                    label: Download Links
+                    label_singular: Download Link
+                    widget: list
+                    fields:
+                    - name: download
+                      label: Download Link
+                      widget: object
+                      fields:
+                        - name: download_label
+                          label: Label
+                          widget: string
+                        - name: download_url
+                          label: URL
+                          widget: string
+              - name: param_franchisees
+                label: Franchisees
+                widget: object
+                fields:
+                  - name: franchisees
+                    label: Franchisees
+                    label_singular: Franchisee
+                    widget: list
+                    fields:
+                    - name: franchisee
+                      label: Franchisee
+                      widget: object
+                      fields:
+                        - name: franchisee_name
+                          label: Name
+                          widget: string
+                        - name: franchisee_start
+                          label: Start Date
+                          widget: string
+                          hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                          required: false
+                        - name: franchisee_end
+                          label: End Date
+                          widget: string
+                          hint: Leave empty if not needed. Otherwise, enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                          required: false
+              - name: param_initatives
+                label: Initiatives
+                widget: object
+                fields:
+                  - name: intiatives
+                    label: Initiatives
+                    label_singular: Initative
+                    widget: list
+                    fields:
+                    - name: initiative
+                      label: Initiative
+                      widget: object
+                      fields:
+                        - name: initiative_title
+                          label: Title
+                          widget: string
+                        - name: initiative_date
+                          label: Date
+                          widget: string
+                          hint: Enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+              - name: param_latlong
+                label: Latitude and Longitude
+                widget: object
+                fields:
+                  - name: latitude
+                    label: Latitude
+                    widget: number
+                    value_type: float
+                  - name: longitude
+                    label: Longitude
+                    widget: number
+                    value_type: float
+              - name: param_manufacturer
+                label: Manufacturer(s)
+                widget: object
+                fields:
+                  - name: manufacturer
+                    label: Manufacturer(s)
+                    widget: string
+              - name: param_measurements
+                label: Measurements
+                widget: object
+                fields:
+                  - name: measurements
+                    label: Measurements
+                    label_singular: Measurement
+                    widget: list
+                    fields:
+                    - name: measurement
+                      label: Measurement
+                      widget: object
+                      fields:
+                        - name: measurement_label
+                          label: Label
+                          widget: string
+                        - name: measurement_value
+                          label: Value
+                          widget: string
+              - name: param_mediaduration
+                label: Media Duration
+                widget: object
+                fields:
+                  - name: mediaduration
+                    label: Media Duration
+                    widget: string
+              - name: param_prices
+                label: Prices
+                widget: object
+                fields:
+                  - name: prices
+                    label: Prices
+                    label_singular: Price
+                    widget: list
+                    fields:
+                    - name: price
+                      label: Price
+                      widget: object
+                      fields:
+                        - name: price_amount
+                          label: Amount
+                          widget: number
+                          value_type: float
+                        - name: price_date
+                          label: Date
+                          widget: string
+                          hint: Enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                        - name: price_notes
+                          label: Notes
+                          widget: string
+                          required: false
+              - name: param_sales
+                label: Sales Valuations
+                widget: object
+                fields:
+                  - name: sales
+                    label: Sales
+                    label_singular: Sale
+                    widget: list
+                    fields:
+                    - name: sale
+                      label: Sale
+                      widget: object
+                      fields:
+                        - name: sale_amount
+                          label: Amount
+                          widget: number
+                          value_type: float
+                        - name: sale_date
+                          label: Date
+                          widget: string
+                          hint: Enter the date in format YYYY-MM-DD. Replace with 0s for unknown year/month/day.
+                          pattern: ['^$|\d{4}-\d{2}-\d{2}$', Date must be in format YYYY-MM-DD]
+                        - name: sale_source
+                          label: Source URL
+                          widget: string
+              - name: param_showtape
+                label: Showtape Listing
+                widget: object
+                fields:
+                  - name: segments
+                    label: Segments
+                    label_singular: Segment
+                    widget: list
+                    fields:
+                      - name: segment_title
+                        label: 'Title (Segment #, Intermission #, etc.)'
+                        widget: string
+                      - name: segment_tracks
+                        label: Tracks
+                        label_singular: Track
+                        widget: list
+                        fields:
+                          - name: track_title
+                            label: Title
+                            widget: string
+                          - name: track_media
+                            label: Single Track Media
+                            widget: object
+                            fields:
+                              - name: track_src
+                                label: Media Source
+                                widget: string
+                                hint: Must be an MP3 or MP4 file from the Internet Archive (direct URL).
+                              - name: track_time
+                                label: Timecode in Media Source (Optional)
+                                hint: Timecode of the song within the media source.
+                            required: false
+                          - name: track_medley
+                            label: Multiple Track Medley
+                            widget: object
+                            fields:
+                              - name: medley_tracks
+                                label: Medley Tracks
+                                label_singular: Medley Track
+                                widget: list
+                                fields:
+                                  - name: medley_track_title
+                                    label: Title
+                                    widget: string
+                                  - name: medley_track_media
+                                    label: Medley Track Media
+                                    widget: object
+                                    fields:
+                                      - name: medley_track_src
+                                        label: Media Source
+                                        widget: string
+                                        hint: Must be an MP3 or MP4 file from the Internet Archive (direct URL).
+                                      - name: medley_track_time
+                                        label: Timecode in Media Source (Optional)
+                                        hint: Timecode of the song within the media source.
+                                    required: false
+                            required: false
         required: false
