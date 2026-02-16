@@ -11,7 +11,13 @@ end = ""
 aka = ""
 cu = ""
 duration = ""
+manufacturers = []
+showtapeformats = []
 sqft = 0.00
+storenumber = ""
+transcriptions = []
+unitsproduced = 0.00
+wholesaleprice = 0.00
 
 [[animatronic]]
 title = ""
@@ -47,9 +53,6 @@ date = ""
 latitude = 0.00
 longitude = 0.00
 
-[[manufacturer]]
-title = ""
-
 [[measurement]]
 label = ""
 value = ""
@@ -78,5 +81,9 @@ url = ""
         tracksrc = ""
         tracktime = ""
 
-[[showtapeformat]]
+[[stage]]
 title = ""
+debut = ""
+removal = ""
+notes = ""
++++
