@@ -8,8 +8,10 @@ contributors = []
 start = ""
 end = ""
 
-[[aka]]
 aka = ""
+cu = ""
+duration = ""
+sqft = 0.00
 
 [[animatronic]]
 title = ""
@@ -28,15 +30,9 @@ notes = ""
 name = ""
 role = ""
 
-[[cu]]
-cu = ""
-
 [[download]]
 label = ""
 url = ""
-
-[[duration]]
-duration = ""
 
 [[franchisee]]
 name = ""
@@ -52,7 +48,7 @@ latitude = 0.00
 longitude = 0.00
 
 [[manufacturer]]
-manufacturer = ""
+title = ""
 
 [[measurement]]
 label = ""
@@ -81,3 +77,6 @@ url = ""
         title = ""
         tracksrc = ""
         tracktime = ""
+
+[[showtapeformat]]
+title = ""
